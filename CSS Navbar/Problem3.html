@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fixed Side - Nav Bar</title>
+    <style>
+        
+        .fixednav {
+            height: 100%;
+            width: 120px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .fixednav a {
+            padding: 10px;
+            text-decoration: none;
+            font-family: 'poppins';
+            font-size: 25px;
+            color: #fff;
+            display: block;            
+        }
+
+        .fixednav a:hover{
+            color: #18d;    
+        }
+
+        .main {
+            margin-left: 160px;
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .fixednav {padding-top: 150px}
+            .fixednav a {font-size: 18px;}          
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="fixednav">
+        <a href="https://testbook.com/ aeje-drdo-ssc-imd-dhamaka-pack-coaching" class="active" target="_blank">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Support</a>
+    </div>
+   
+</body>
+</html>
