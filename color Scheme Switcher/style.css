@@ -1,0 +1,40 @@
+*{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* .body {
+    display: block;
+    align-items: center;
+    justify-content: center;
+} */
+
+.canvas {
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    border: 2px solid black;
+}
+
+#grey {
+    background-color: grey;
+}
+
+#white {
+    background-color: white;
+}
+
+#blue {
+    background-color:blue;
+}
+
+#yellow {
+    background-color: yellow;
+}
