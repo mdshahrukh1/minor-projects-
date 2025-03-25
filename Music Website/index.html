@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img class="logo" src="images/logo.png" alt="">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SPECIFICATIONS</a></li>
+                <li><a href="">PRODUCTS</a></li>
+                <li><a href="#">CONNECT</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="left-col">
+                <h1>THE <br> REAL <br> SOUND</h1>
+            </div>
+            <div class="right-col">
+                <p>Click Here To Listen</p>
+                <img id="icon" src="images/play.png" alt="">
+            </div>
+            <input type="range" id="progress-bar" value="0" min="0" step="1">
+        </div>
+    </div>
+
+    <audio id="mySong">
+        <source source src="media/song.mp3" type="audio/mp3">
+    </audio>
+
+
+    <script>
+        let mySong = document.getElementById('mySong');
+        let icon = document.getElementById('icon');
+        let progressBar = document.getElementById('progress-bar');
+
+
+        icon.onclick = function () {
+            if (mySong.paused) {
+                mySong.play();
+                icon.src = "images/pause.png";
+            } else {
+                mySong.pause();
+                icon.src = "images/play.png";
+            }
+            if (mySong.completed) {
+                icon.src = "images/play.png";
+            }
+            // Update progress bar as song plays
+            mySong.addEventListener("timeupdate", function () {
+                let progress = (mySong.currentTime / mySong.duration) * 100;
+                progressBar.value = progress;
+            });
+
+            // Seek when progress bar is clicked
+            progressBar.addEventListener("input", function () {
+                let seekTime = (progressBar.value / 100) * mySong.duration;
+                mySong.currentTime = seekTime;
+            });
+
+            // Reset icon when song ends
+            mySong.onended = function () {
+                icon.src = "images/play.png";
+                progressBar.value = 0;
+            };
+
+        }
+    </script>
+</body>
+
+</html>
