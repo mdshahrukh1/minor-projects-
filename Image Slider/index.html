@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="gallery-wrap">
+        <img id="backBtn" src="images/back.png" alt="">
+        <div class="gallery">
+
+            <div>
+                <span><img src="images/image-1.png" alt=""></span>
+                <span><img src="images/image-2.png" alt=""></span>
+                <span><img src="images/image-3.png" alt=""></span>
+            </div>
+
+            <div>
+                <span><img src="images/image-4.png" alt=""></span>
+                <span><img src="images/image-5.png" alt=""></span>
+                <span><img src="images/image-6.png" alt=""></span>
+            </div>
+
+        </div>
+        <img id="nextBtn" src="images/next.png" alt="">
+    </div>
+
+    <script>
+
+        let scrollConatiner = document.querySelector(".gallery");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
+
+        scrollConatiner.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            scrollConatiner.scrollLeft += evt.deltaY;
+            scrollConatiner.style.scrollBehavior = "auto";
+        })
+
+        backBtn.addEventListener("click", () => {
+            scrollConatiner.style.scrollBehavior = "smooth";
+            scrollConatiner.scrollLeft -= 900;
+        });
+        
+        nextBtn.addEventListener("click", () => {
+            scrollConatiner.style.scrollBehavior = "smooth";
+            scrollConatiner.scrollLeft += 900;
+        });
+
+    </script>
+
+</body>
+
+</html>
